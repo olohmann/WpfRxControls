@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfRxControls.TestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfRxControls.TestApp"
+        xmlns:model="clr-namespace:WpfRxControls.TestApp.Model"
+        xmlns:ctrls="clr-namespace:WpfRxControls;assembly=WpfRxControls"
+        Title="MainWindow" Height="400" Width="525"
+        Background="#eee"
+        FontFamily="Segoe">
+    <Window.DataContext>
+        <local:MainWindowViewModel></local:MainWindowViewModel>
+    </Window.DataContext>
+
+     
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Margin="10">
+            <Label>AutoComplete Source</Label>
+            <ComboBox SelectedItem="{Binding CurrentAutoCompleteQuerySource}" ItemsSource="{Binding AutoCompleteSources}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+
+        <ctrls:AutoCompleteTextBox
+            Grid.Row="1"
+            AutoCompleteQueryResultProvider="{Binding AutoCompleteQueryResultProvider}"
+            Margin="10" FontSize="20" PopupHeight="300">      
+            <ctrls:AutoCompleteTextBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="100">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Stretch="None" Source="{Binding Thumbnail}"></Image>
+                        <TextBlock MaxWidth="280" Margin="5 0 0 0" TextWrapping="Wrap"  Grid.Column="1" Text="{Binding Title}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ctrls:AutoCompleteTextBox.ItemTemplate>
+        </ctrls:AutoCompleteTextBox>
+    </Grid>
+</Window>
