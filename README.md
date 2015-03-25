@@ -5,5 +5,5 @@ A sample implementation for a WPF AutoCompleteTextBox that utilizes the Reactive
 
 Details can be found in a series of blog posts:
 
-* http://blogs.msdn.com/b/argumentnullexceptionblogpost/archive/2013/06/21/an-rx-enabled-wpf-control-part-1-2.aspx
-* http://blogs.msdn.com/b/argumentnullexceptionblogpost/archive/2013/06/21/an-rx-enabled-wpf-control-part-2-2.aspx
+* http://www.oliver-lohmann.me/an-rx-enabled-wpf-autocomplete-textbox-part-1-2/
+* http://www.oliver-lohmann.me/an-rx-enabled-wpf-autocomplete-textbox-part-2-2/
